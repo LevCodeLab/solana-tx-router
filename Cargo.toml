@@ -1,0 +1,40 @@
+[package]
+name = "solana-tx-router"
+version = "0.1.0"
+edition = "2021"
+license = "MIT"
+description = "Smart QUIC TPU transaction router, compute-unit fee priority calculator, dead-zone circuit breaker, and leader latency benchmark CLI for Solana"
+
+[dependencies]
+tokio = { version = "1.36", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+reqwest = { version = "0.11", features = ["json"] }
+tokio-tungstenite = { version = "0.21", features = ["native-tls"] }
+futures-util = "0.3"
+async-trait = "0.1"
+thiserror = "1.0"
+tracing = "0.1"
+tracing-subscriber = "0.3"
+bs58 = "0.5"
+base64 = "0.22"
+sha2 = "0.10"
+ed25519-dalek = { version = "2.1", features = ["rand_core"] }
+bincode = "1.3"
+quinn = "0.11"
+rustls = { version = "0.23", default-features = false, features = ["ring", "std"] }
+rand = "0.8"
+solana-pubkey = "4.4.0"
+solana-hash = "4.7.0"
+solana-keypair = "3.1.2"
+solana-instruction = "4.0.0"
+solana-message = "4.6.0"
+solana-transaction = "4.3.0"
+
+[[bin]]
+name = "solana-tx-router"
+path = "src/main.rs"
+
+[lib]
+name = "solana_tx_router"
+path = "src/lib.rs"
