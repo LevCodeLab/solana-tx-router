@@ -4,7 +4,9 @@
 pub mod clock;
 pub mod config;
 pub mod decision;
+pub mod fee_calculator;
 pub mod freshness;
+pub mod tx_builder;
 pub mod types;
 
 pub const ROUTER_VERSION: &str = env!("CARGO_PKG_VERSION");
