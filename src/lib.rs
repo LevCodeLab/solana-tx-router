@@ -6,6 +6,7 @@ pub mod config;
 pub mod decision;
 pub mod fee_calculator;
 pub mod freshness;
+pub mod tpu_quic;
 pub mod tx_builder;
 pub mod types;
 
