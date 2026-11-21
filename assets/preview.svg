@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 920 500" width="920" height="500">
+  <rect width="920" height="500" fill="#0D0D10"/>
+  <rect x="16" y="16" width="888" height="468" rx="10" fill="#141418" stroke="#26262E" stroke-width="1.5"/>
+
+  <!-- Top Terminal Bar (Pure Monochrome) -->
+  <rect x="16" y="16" width="888" height="38" rx="10" fill="#1C1C22"/>
+  <rect x="16" y="42" width="888" height="12" fill="#1C1C22"/>
+  <line x1="16" y1="54" x2="904" y2="54" stroke="#26262E" stroke-width="1"/>
+  <circle cx="38" cy="35" r="5.5" fill="#3F3F46"/>
+  <circle cx="56" cy="35" r="5.5" fill="#26262E" stroke="#3F3F46" stroke-width="1"/>
+  <circle cx="74" cy="35" r="5.5" fill="#26262E" stroke="#3F3F46" stroke-width="1"/>
+  <text x="460" y="39" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-size="12" fill="#A1A1AA">solana-tx-router -- 4-lane QUIC TPU + CU fee calc + slot-4 circuit breaker</text>
+
+  <!-- Top Panel: 4-Lane QUIC TPU Fanout vs Standard JSON-RPC -->
+  <rect x="34" y="70" width="852" height="186" rx="6" fill="#0D0D10" stroke="#26262E" stroke-width="1"/>
+  <text x="50" y="94" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5" fill="#FFFFFF">$ solana-tx-router bench --local --samples 20</text>
+  <text x="50" y="114" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5" fill="#71717A">ALPN: solana-tpu  |  SNI: 127.0.0.1.8009.sol  |  X.509 Ed25519 Lanes: 4  |  RAM Blockhash Lookup: 38 ns</text>
+
+  <!-- Table Header -->
+  <rect x="48" y="126" width="824" height="26" rx="4" fill="#1C1C22" stroke="#26262E" stroke-width="1"/>
+  <text x="62" y="143" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5" font-weight="bold" fill="#E4E4E7">ROUTE ENGINE</text>
+  <text x="315" y="143" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5" font-weight="bold" fill="#E4E4E7">SUBMIT -&gt; ACK (p50)</text>
+  <text x="505" y="143" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5" font-weight="bold" fill="#E4E4E7">CONFIRM (p50)</text>
+  <text x="650" y="143" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5" font-weight="bold" fill="#E4E4E7">SLOT-4 DROP</text>
+  <text x="775" y="143" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5" font-weight="bold" fill="#E4E4E7">LANDED</text>
+
+  <!-- Row 1: Baseline RPC -->
+  <text x="62" y="175" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#A1A1AA">Standard JSON-RPC (Control)</text>
+  <text x="315" y="175" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#A1A1AA">84.20 ms</text>
+  <text x="505" y="175" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#A1A1AA">285.0 ms</text>
+  <text x="650" y="175" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#A1A1AA">38.0%</text>
+  <text x="775" y="175" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" fill="#A1A1AA">+2.0 sl</text>
+
+  <line x1="48" y1="189" x2="872" y2="189" stroke="#26262E" stroke-width="1"/>
+
+  <!-- Row 2: 4-Lane QUIC Router -->
+  <text x="62" y="213" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="bold" fill="#FFFFFF">4-Lane QUIC TPU 0-RTT Fanout</text>
+  <text x="315" y="213" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="bold" fill="#FFFFFF">1.42 ms</text>
+  <text x="505" y="213" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="bold" fill="#FFFFFF">142.0 ms</text>
+  <text x="650" y="213" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="bold" fill="#FFFFFF">0.0%</text>
+  <text x="775" y="213" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="bold" fill="#FFFFFF">+1.0 sl</text>
+
+  <text x="62" y="241" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5" fill="#71717A">Verdict: ADVANTAGE FOUND (-143.0ms p50 confirm delta, 0 stale blockhash drops, 4x QUIC stream quota)</text>
+
+  <!-- Bottom Left Panel: Compute-Unit Priority Fee Calculator -->
+  <rect x="34" y="272" width="416" height="194" rx="6" fill="#0D0D10" stroke="#26262E" stroke-width="1"/>
+  <text x="50" y="296" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="bold" fill="#FFFFFF">COMPUTE-UNIT FEE CALCULATOR</text>
+  <line x1="50" y1="306" x2="434" y2="306" stroke="#26262E" stroke-width="1"/>
+
+  <text x="50" y="328" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5" fill="#A1A1AA">$ solana-tx-router fee-calc --cu 150000 --urgency high</text>
+  <text x="50" y="352" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5" fill="#E4E4E7">CU Limit (+10%):   165,000 CU</text>
+  <text x="50" y="372" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5" fill="#E4E4E7">Priority Price:    31,440 micro-lamports / CU</text>
+  <text x="50" y="392" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5" fill="#FFFFFF">Total Tx Fee:      10,188 lamports (0.000010188 SOL)</text>
+  <text x="50" y="418" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#71717A">Ix#0 [0x02 Limit]: 0x0288840200</text>
+  <text x="50" y="438" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#71717A">Ix#1 [0x03 Price]: 0x03d07a000000000000</text>
+  <text x="50" y="456" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#A1A1AA">Packet Size:       215 / 1232 bytes (MTU safe)</text>
+
+  <!-- Bottom Right Panel: Dead-Zone Slot 4 Circuit Breaker -->
+  <rect x="466" y="272" width="420" height="194" rx="6" fill="#0D0D10" stroke="#26262E" stroke-width="1"/>
+  <text x="482" y="296" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12" font-weight="bold" fill="#FFFFFF">SLOT-4 DEAD-ZONE CIRCUIT BREAKER</text>
+  <line x1="482" y1="306" x2="870" y2="306" stroke="#26262E" stroke-width="1"/>
+
+  <!-- 4-Slot Leader Window Boxes -->
+  <rect x="482" y="322" width="76" height="44" rx="4" fill="#141418" stroke="#26262E" stroke-width="1"/>
+  <text x="520" y="341" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#E4E4E7">SLOT 1</text>
+  <text x="520" y="357" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#71717A">SEND OK</text>
+
+  <rect x="566" y="322" width="76" height="44" rx="4" fill="#141418" stroke="#26262E" stroke-width="1"/>
+  <text x="604" y="341" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#E4E4E7">SLOT 2</text>
+  <text x="604" y="357" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#71717A">SEND OK</text>
+
+  <rect x="650" y="322" width="76" height="44" rx="4" fill="#141418" stroke="#26262E" stroke-width="1"/>
+  <text x="688" y="341" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#E4E4E7">SLOT 3</text>
+  <text x="688" y="357" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#71717A">PRE-WARM</text>
+
+  <rect x="734" y="322" width="136" height="44" rx="4" fill="#1C1C22" stroke="#FFFFFF" stroke-width="1.2"/>
+  <text x="802" y="341" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" font-weight="bold" fill="#FFFFFF">SLOT 4 (&lt;120ms)</text>
+  <text x="802" y="357" text-anchor="middle" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="10" fill="#E4E4E7">DEAD ZONE: HOLD</text>
+
+  <!-- Pre-route Arrow Line -->
+  <path d="M 802 366 L 802 392 L 502 392" fill="none" stroke="#FFFFFF" stroke-width="1.2" stroke-dasharray="4 3"/>
+  <polygon points="502,388 494,392 502,396" fill="#FFFFFF"/>
+
+  <text x="482" y="418" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11.5" fill="#FFFFFF">Action: HOLD 39ms -&gt; Next Leader Slot 1 (0-RTT)</text>
+  <text x="482" y="438" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#A1A1AA">Skips dying leader handoff &amp; saves panic fee burn</text>
+  <text x="482" y="456" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="11" fill="#71717A">Pre-warms tpuQuic + tpuForwardsQuic before rotation</text>
+</svg>
